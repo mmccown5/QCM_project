@@ -7,3 +7,11 @@ scripts/*
 */__pycache__/
 .ipynb_checkpoints/*
 *-checkpoint.ipynb
+output/*
+output.h5ad
+.nextflow.log
+.nextflow/*
+__pycache__/*
+target/*
+work/*
+submission.zip

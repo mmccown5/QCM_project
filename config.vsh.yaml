@@ -1,6 +1,6 @@
 functionality:
-  name: python_starter_kit
-  namespace: predict_modality_starter_kits
+  name: basic_beans
+  namespace: basic_beans_qcm
 
   # metadata for your method
   version: dev
@@ -9,7 +9,7 @@ functionality:
     - name: Michaela McCown
       email: michaela.mccown@bcm.edu
       roles: [ author, maintainer ]
-      props: { github: johndoe, orcid: "0000-1111-2222-3333" }
+      props: { github: mmccown5 }
 
   # parameters
   arguments:
@@ -50,6 +50,7 @@ functionality:
   resources:
     - type: python_script
       path: script.py
+    - path: method.py # method and helper functions
 
   # resources for unit testing your component
   tests:

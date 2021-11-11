@@ -23,9 +23,9 @@ To be determined
 │   ├── openproblems_bmmc_cite_starter/     # Contains H5AD files for CITE data
 │   └── openproblems_bmmc_multiome_starter/ # Contains H5AD files for multiome data
 ├── benchmark_data/                         # Benchmark or exploratory datasets
-│   ├── cite/     # Contains H5AD files for CITE data
-│   ├── multiome/ # Contains H5AD files for multiome data
-│   ├── LICENSE                                 # MIT License
+│   ├── cite/                               # Contains H5AD files for CITE data
+│   ├── multiome/                           # Contains H5AD files for multiome data
+│   ├── LICENSE                             # MIT License
 │   └── README.md                           # See https://openproblems.bio/neurips_docs/data
 ├── scripts/                                # Scripts to test, generate, and evaluate a submission
 │   ├── 0_sys_checks.sh                     # Checks that necessary software installed
