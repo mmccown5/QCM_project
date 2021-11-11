@@ -1,0 +1,9 @@
+benchmark_data/*
+benchmark_data/*/*
+sample_data/*
+sample_data/*/*
+bin/*
+scripts/*
+*/__pycache__/
+.ipynb_checkpoints/*
+*-checkpoint.ipynb
