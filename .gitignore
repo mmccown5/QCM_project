@@ -10,6 +10,7 @@ scripts/*
 output/*
 output.h5ad
 .nextflow.log
+.nextflow.log*
 .nextflow/*
 __pycache__/*
 target/*

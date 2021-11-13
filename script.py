@@ -44,15 +44,6 @@ input_train_mod1 = ad.read_h5ad(par['input_train_mod1'])
 input_train_mod2 = ad.read_h5ad(par['input_train_mod2'])
 input_test_mod1 = ad.read_h5ad(par['input_test_mod1'])
 
-input_train = ad.concat(
-    {"train": input_train_mod1, "test": input_test_mod1},
-    axis=0,
-    join="outer",
-    label="group",
-    fill_value=0,
-    index_unique="-"
-)
-
 # TODO: implement own method
 from method import method
 adata = method(input_train_mod1, input_train_mod2, input_test_mod1)
