@@ -1,17 +1,13 @@
-import numpy as np
-import pandas as pd
 import logging
+import anndata as ad
 from sklearn.decomposition import TruncatedSVD
 from sklearn.neighbors import KNeighborsRegressor
-from sklearn.metrics import mean_squared_error
+from statistics import sqrt
+from math import ceil
 
 from scipy.sparse import csc_matrix
 
-#import scanpy as sc
-import anndata as ad
-import matplotlib.pyplot as plt
-
-def method(input_train_mod1, input_train_mod2, input_test_mod1):
+def method(input_train_mod1, input_train_mod2, input_test_mod1, k=0, d=50):
     '''Basic user-implemented method'''
     
     
@@ -25,11 +21,11 @@ def method(input_train_mod1, input_train_mod2, input_test_mod1):
         index_unique="-"
     )
     
-    embedder_mod1 = TruncatedSVD(n_components=50)
+    embedder_mod1 = TruncatedSVD(n_components=d)
     mod1_pca = embedder_mod1.fit_transform(input_mod1.X)
 
     logging.info('Performing dimensionality reduction on modality 2 values...')
-    embedder_mod2 = TruncatedSVD(n_components=50)
+    embedder_mod2 = TruncatedSVD(n_components=d)
     mod2_pca = embedder_mod2.fit_transform(input_train_mod2.X)
 
     # split dimred back up
@@ -38,11 +34,16 @@ def method(input_train_mod1, input_train_mod2, input_test_mod1):
     y_train = mod2_pca
 
     assert len(X_train) + len(X_test) == len(mod1_pca)
+    
+    #by default, calculate k thusly:
+    if k==0:
+        N = X_train.shape[0]
+        k = ceil(sqrt(N))
 
     logging.info('Running K nearest neigbors...')
 
     # Train the model on the PCA reduced modality 1 and 2 data
-    neigh = KNeighborsRegressor(n_neighbors=2)
+    neigh = KNeighborsRegressor(n_neighbors=k)
     neigh.fit(X_train, mod2_pca)
 
     # Project the predictions back to the modality 2 feature space
