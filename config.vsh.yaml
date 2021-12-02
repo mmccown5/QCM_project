@@ -50,7 +50,6 @@ functionality:
   resources:
     - type: python_script
       path: script.py
-    - path: beans.py # method and helper functions
 
   # resources for unit testing your component
   tests:
@@ -86,4 +85,7 @@ platforms:
   # which uses the docker container built above to also be able to
   # run your method as part of a nextflow pipeline.
   - type: nextflow
-    labels: [ lowmem, lowtime, lowcpu ]
+    labels: [ midmem, midtime, midcpu ]
+
+  # used for saturn cloud
+  - type: native

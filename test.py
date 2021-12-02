@@ -30,7 +30,6 @@ out = subprocess.check_output([
 ]).decode("utf-8")
 
 print("> Checking whether output files were created")
-print(testpar['output'])
 assert path.exists(testpar['output'])
 
 print("> Reading h5ad files")
